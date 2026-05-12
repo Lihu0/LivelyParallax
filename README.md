@@ -1,6 +1,6 @@
 # Lively Parallax
 
-<img src="preview.gif" width="400" />
+<img src="preview.gif" width="550" />
 
 **Lively Parallax** is a simple parallax wallpaper for [Lively Wallpaper](https://www.rocksdanister.com/lively/).
 
