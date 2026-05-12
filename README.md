@@ -7,8 +7,8 @@
 ## Usage
 
 1. Install [Lively Wallpaper](https://www.rocksdanister.com/lively/) by rocksdanister.
-2. Download the latest `.zip` wallpaper from the _Releases tab_.
-3. Click the "plus" symbol on the Lively app.
+2. Download the latest `.zip` wallpaper from the **Releases tab**.
+3. Click the **plus (+)** symbol on the Lively app.
 4. Drag & drop the `.zip` file or choose it.
 
 > [!TIP]
