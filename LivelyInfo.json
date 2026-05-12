@@ -1,0 +1,14 @@
+{
+  "AppVersion": "1.0.0",
+  "Title": "Parallax",
+  "Thumbnail": "thumbnail.jpg",
+  "Preview": "preview.gif",
+  "Desc": "A simple parallax wallpaper for Lively Wallpaper.",
+  "Author": "Lihu0",
+  "License": "See LICENSE",
+  "Contact": "",
+  "Type": 1,
+  "FileName": "index.html",
+  "Arguments": "--pause-event true",
+  "IsAbsolutePath": false
+}
