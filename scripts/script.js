@@ -40,6 +40,14 @@ function livelyPropertyListener(name, val) {
       parallaxDamp = val;
       break;
 
+    case "imgFit":
+      imgFitArray = ["fill", "cover", "contain", "none", "scale-down"];
+      imgFit = imgFitArray[val];
+      if (imgElement) {
+        imgElement.style.objectFit = imgFit;
+      }
+      break;
+
     case "imgSelect":
       {
         const extension = getExtension(val);
@@ -103,4 +111,5 @@ function animateParallax() {
   requestAnimationFrame(animateParallax);
 }
 
+livelyPropertyListener("imgSelect", "./media/windows11_dark.jpg"); // fallback image
 animateParallax();

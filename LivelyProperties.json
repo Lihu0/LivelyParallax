@@ -30,6 +30,18 @@
     "type": "slider",
     "value": 1
   },
+  "imgFit": {
+    "type": "dropdown",
+    "value": 1,
+    "text": "Image Fit",
+    "items": [
+      "Fill",
+      "Cover",
+      "Contain",
+      "None",
+      "Scale Down"
+    ]
+  },
   "imgSelect": {
     "type": "folderDropdown",
     "value": "Windows11_dark.jpg",

@@ -12,7 +12,7 @@
 4. Drag & drop the `.zip` file or choose it.
 
 > [!TIP]
-> Click the edit button on the wallpaper and don't change any setting to force reset the preview.
+> Turn on **Desktop picture** on Lively settings to set it as a static wallpaper too.
 
 ## Features
 
