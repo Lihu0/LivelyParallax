@@ -9,6 +9,7 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background: url("./media/windows11_dark.jpg") center / cover; /* fallback image when not in Lively */
 }
 
 #container img {

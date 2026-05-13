@@ -53,21 +53,11 @@ function livelyPropertyListener(name, val) {
         const extension = getExtension(val);
 
         if (
-          extension == "jpg" ||
-          extension == "jpeg" ||
-          extension == "png" ||
-          extension == "webp"
+          extension === "jpg" ||
+          extension === "jpeg" ||
+          extension === "png" ||
+          extension === "webp"
         ) {
-          if (!imgElement) {
-            imgElement = document.createElement("img");
-            container.innerHTML = "";
-            container.appendChild(imgElement);
-
-            imgElement.style.width = "100%";
-            imgElement.style.height = "100%";
-            imgElement.style.objectFit = "cover";
-          }
-
           const tempImg = new Image();
 
           tempImg.onload = () => {
@@ -76,7 +66,18 @@ function livelyPropertyListener(name, val) {
               height: tempImg.height,
             };
 
+            if (!imgElement) {
+              imgElement = document.createElement("img");
+              imgElement.style.width = "100%";
+              imgElement.style.height = "100%";
+              imgElement.style.objectFit = "cover";
+            }
+
             imgElement.src = val;
+
+            if (!imgElement.isConnected) {
+              container.replaceChildren(imgElement);
+            }
           };
 
           tempImg.src = val;
@@ -111,5 +112,4 @@ function animateParallax() {
   requestAnimationFrame(animateParallax);
 }
 
-livelyPropertyListener("imgSelect", "./media/windows11_dark.jpg"); // fallback image
 animateParallax();
