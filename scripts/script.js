@@ -81,11 +81,13 @@ function livelyPropertyListener(name, val) {
 }
 
 document.addEventListener("mousemove", function (event) {
-  const x = event.clientX - window.innerWidth / 2;
-  const y = event.clientY - window.innerHeight / 2;
+  targetX =
+    (window.innerWidth - event.pageX * parallaxIntensity * parallaxStrength) /
+    parallaxDistance;
 
-  targetX = (x * parallaxIntensity * parallaxStrength) / parallaxDistance;
-  targetY = (y * parallaxIntensity * parallaxStrength) / parallaxDistance;
+  targetY =
+    (window.innerHeight - event.pageY * parallaxIntensity * parallaxStrength) /
+    parallaxDistance;
 });
 
 function animateParallax() {
