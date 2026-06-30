@@ -1,3 +1,5 @@
+"use strict";
+
 const container = document.querySelector("#container");
 
 let parallaxIntensity = 1;
@@ -12,7 +14,6 @@ let currentY = 0;
 
 let imgElement = null;
 let currentImage = null;
-let resolution = { width: 0, height: 0 };
 
 function getExtension(filePath) {
   return (
@@ -41,60 +42,50 @@ function livelyPropertyListener(name, val) {
       break;
 
     case "imgFit":
-      imgFitArray = ["fill", "cover", "contain", "none", "scale-down"];
-      imgFit = imgFitArray[val];
-      if (imgElement) {
-        imgElement.style.objectFit = imgFit;
-      }
+      const imgFitArray = ["fill", "cover", "contain", "none", "scale-down"];
+      let imgFit = imgFitArray[val];
+
+      if (imgElement) imgElement.style.objectFit = imgFit;
       break;
 
     case "imgSelect":
-      {
-        const extension = getExtension(val);
+      const extension = getExtension(val);
 
-        if (
-          extension === "jpg" ||
-          extension === "jpeg" ||
-          extension === "png" ||
-          extension === "webp"
-        ) {
-          const tempImg = new Image();
+      if (
+        extension !== "jpg" &&
+        extension !== "jpeg" &&
+        extension !== "png" &&
+        extension !== "webp"
+      )
+        return;
 
-          tempImg.onload = () => {
-            resolution = {
-              width: tempImg.width,
-              height: tempImg.height,
-            };
+      const tempImg = new Image();
 
-            if (!imgElement) {
-              imgElement = document.createElement("img");
-              imgElement.style.width = "100%";
-              imgElement.style.height = "100%";
-              imgElement.style.objectFit = "cover";
-            }
-
-            imgElement.src = val;
-
-            if (!imgElement.isConnected) {
-              container.replaceChildren(imgElement);
-            }
-          };
-
-          tempImg.src = val;
+      tempImg.onload = () => {
+        if (!imgElement) {
+          imgElement = document.createElement("img");
+          imgElement.style.width = "100%";
+          imgElement.style.height = "100%";
+          imgElement.style.objectFit = "cover";
         }
-      }
+
+        imgElement.src = val;
+
+        if (!imgElement.isConnected) container.replaceChildren(imgElement);
+      };
+
+      tempImg.src = val;
+
       break;
   }
 }
 
 document.addEventListener("mousemove", function (event) {
-  targetX =
-    (window.innerWidth - event.pageX * parallaxIntensity * parallaxStrength) /
-    parallaxDistance;
+  const x = event.clientX - window.innerWidth / 2;
+  const y = event.clientY - window.innerHeight / 2;
 
-  targetY =
-    (window.innerHeight - event.pageY * parallaxIntensity * parallaxStrength) /
-    parallaxDistance;
+  targetX = (x * parallaxIntensity * parallaxStrength) / parallaxDistance;
+  targetY = (y * parallaxIntensity * parallaxStrength) / parallaxDistance;
 });
 
 function animateParallax() {
